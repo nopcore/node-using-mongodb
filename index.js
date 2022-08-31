@@ -1,8 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = 4000;
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/productsdb', {useNewUrlParser: true, useUnifiedTopology: true});
 
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }));
